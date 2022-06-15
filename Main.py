@@ -18,7 +18,7 @@ assets = []
 
 for i in range(0,len(p_list)):
     prediction = p_list[i][0] 
-    if (prediction < -0.001):
+    if (prediction < 0.001):
         balance += stock_count*etf_price_list[i]
         stock_count = 0
     elif (prediction < 0.005 and prediction > 0.001):
