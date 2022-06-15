@@ -14,6 +14,7 @@ stock_count = 0
 etf_price_list = etf_prices.tolist()
 pl = []
 days = []
+assets = []
 
 for i in range(0,len(p_list)):
     prediction = p_list[i][0] 
@@ -33,10 +34,13 @@ for i in range(0,len(p_list)):
             stock_count += 300
             balance -= etf_price_list[i]*300
     pl.append(((balance+etf_price_list[i]*stock_count)-1000000))
+    assets.append(etf_price_list[i]*stock_count)
     days.append(i)
 
 
 plt.plot(days,pl)
 balance += etf_price_list[-1]*stock_count 
 print("P\L = " + str(balance-1000000))
+plt.show()
+plt.plot(days,assets)
 plt.show()
